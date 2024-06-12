@@ -119,6 +119,7 @@ def do_test(config: argparse.Namespace):
             context["click"] = figure.canvas.mpl_connect('key_press_event', on_press)
             handle.style(fill=False)
             figure.show()
+            
 
         helper = MultiObjectHelper(sequence)
 
@@ -141,6 +142,7 @@ def do_test(config: argparse.Namespace):
                 visualize(axes, frame, [frame.object(x) for x in helper.objects(i)], state)
                 figure.canvas.draw()
                 figure.canvas.flush_events()
+                figure.savefig(f'/data1/zhangjiaming/Mamba/WORK_SPACE_LIANGCHENG/MixFormer_Mamba/vot24/test_imgs/{i}.png')
 
             if not context["continue"]:
                 break
