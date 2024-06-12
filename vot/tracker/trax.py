@@ -223,7 +223,7 @@ class TrackerProcess(object):
     """ A tracker process. This class is used to run trackers in a separate process and handles
      starting, stopping and communication with the process. """
     
-    def __init__(self, command: str, envvars=dict(), timeout=30, log=False, socket=False):
+    def __init__(self, command: str, envvars=dict(), timeout=30, log=True, socket=False):
         """ Initializes a new tracker process.
 
         Args:
@@ -513,6 +513,7 @@ class TraxTrackerRuntime(TrackerRuntime):
             self._output = LogAggregator()
         else:
             self._output = None
+        # import pdb; pdb.set_trace()
         self._timeout = to_number(timeout, min_n=1)
         self._arguments = arguments
         self._onerror = onerror
